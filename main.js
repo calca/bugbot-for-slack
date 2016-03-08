@@ -33,8 +33,10 @@ trackers.forEach(function(tracker) {
     if(message.match.length > 0){
          var name = message.match[0];
          var id = message.match[1];
-         var msg = util.format(tracker.message,name,id);
-         bot.reply(message,msg);
+         if(id){
+            var msg = util.format(tracker.message,name,id);
+            bot.reply(message,msg);
+         }
     }
 });
     
