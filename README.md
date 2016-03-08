@@ -1,1 +1,1 @@
-# bugbot-for-slack
+# bugbot for slack
