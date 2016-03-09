@@ -1,18 +1,29 @@
 {
-  "slack": {
+    "slack": {
         "debug": true,
         "token": ""
-  },
-  "trackers" : [
-      {
-          "name" : "mantis",
-          "messagePattern" : "[M](\\d*)",
-          "message": "%s: http://mantis-url/view.php?id=%s"
-      },
-      {
-          "name" : "redmine",
-          "messagePattern" : "[R](\\d*)",
-          "message": "%s: http://redmine-url/issues/%s"
-      }
-  ]
+    },
+    "trackers": [
+        {
+            "name": "mantis",
+            "messagePattern": "[M](\\d*)",
+            "adapter": {
+                "module": "./adapters/SlackMantisBot",
+                "config": {
+                    "host": "http://mantis-bt/mantisbt"
+                }
+            }
+        },
+        {
+            "name": "redmine",
+            "messagePattern": "[R](\\d*)",
+            "adapter": {
+                "module": "./adapters/SlackRedmineBot",
+                "config": {
+                    "host": "http://redmin-url",
+                    "apiKey": ""
+                }
+            }
+        }
+    ]
 }
